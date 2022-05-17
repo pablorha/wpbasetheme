@@ -36,5 +36,25 @@ This theme, like WordPress, is licensed under the GPL. Use it to make something 
 # Adding header.php, sidebar.php and footer.php to base files
 echo "<?php get_header(); ?>\n<?php get_sidebar(); ?>\n<?php get_footer(); ?>" > $themename/{404.php,archive.php,comments.php,front-page.php,index.php,page.php,search.php,single.php}
 
+# 
+echo "
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <?php wp_head(); ?>
+</head>
+<body <?php body_class(); ?>
+>
+" > $themename/header.php
+
+echo "
+<?php wp_footer(); ?>
+</body>
+</html>
+" > $themename/footer.php
 
 echo "\nAll done!\n"
